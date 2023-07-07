@@ -86,10 +86,10 @@
 
           // マテリアルを設定
           const particleMaterial = new THREE.PointsMaterial({
-            color: 0xffffff,
-            size: 20,
-            map: new THREE.TextureLoader().load('sparkle.png'), // パーティクルにテクスチャを適用する場合
-            // その他のマテリアル設定...
+            color: 0x000d25, // パーティクルの色を設定
+            size: 10,
+            transparent: true, // 透明にするためにtrueに設定
+            blending: THREE.AdditiveBlending // パーティクル同士を加算合成するための設定
           });
 
           return new THREE.Points(particles, particleMaterial);
