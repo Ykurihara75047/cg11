@@ -39,6 +39,18 @@
         //const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
         //scene.add(axisHelper);
 
+        // texture作成
+        var textureLoader = new THREE.TextureLoader();
+        var suntexture = textureLoader.load("img/wakusei.png");
+
+        // 平面（ポリゴン）を作成
+        var sungeometry = new THREE.PlaneGeometry(200,200);
+        var sunmat = new THREE.MeshBasicMaterial({transparent:true});
+        sunmat.map= suntexture;
+        var sunplane = new THREE.Mesh( sungeometry, sunmat );
+        sunplane.position.set(0, 250, 0);
+        scene.add( sunplane );
+
         // パーティクルシステムを作成
         const particleSystem = createParticleSystem();
         scene.add(particleSystem);
