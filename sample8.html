@@ -43,6 +43,12 @@
         var textureLoader = new THREE.TextureLoader();
         var suntexture = textureLoader.load("img/wakusei.png");
 
+         // 中央にビルボード
+          const sprite1 = new THREE.Sprite(suntexture);
+          sprite1.scale.set(1, 2, 1);
+          sprite1.position.set(0, 0, 0); //位置を指定
+          scene.add(sprite1);
+
         // 平面（ポリゴン）を作成
         var sungeometry = new THREE.PlaneGeometry(200,200);
         var sunmat = new THREE.MeshBasicMaterial({transparent:true});
