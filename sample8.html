@@ -38,12 +38,12 @@
         // controls.autoRotate = true;
 
         // ビルボードのテクスチャ
-        //var textureLoader = new THREE.TextureLoader();
-        //var billboardTexture = textureLoader.load("img/wakusei.png");
+        var textureLoader = new THREE.TextureLoader();
+        var billboardTexture = textureLoader.load("img/wakusei.png");
 
         // 平面（ポリゴン）を作成
         var billboardGeometry = new THREE.PlaneGeometry(200, 200);
-        //var billboardMaterial = new THREE.MeshBasicMaterial({ transparent: true, map: billboardTexture });
+        var billboardMaterial = new THREE.MeshBasicMaterial({ transparent: true, map: billboardTexture });
         var billboard = new THREE.Mesh(billboardGeometry, billboardMaterial);
         billboard.position.set(0, 250, 0);
         scene.add(billboard);
@@ -63,21 +63,21 @@
         scene.add(directionalLight1);
 
         // ビルボードを作成
-        //for (let i = 0; i < 100; i++) {
-          //const sprite = new THREE.Sprite();
+        for (let i = 0; i < 100; i++) {
+          const sprite = new THREE.Sprite();
           // ランダムな座標に配置
-          //sprite.position.x = 1000 * (Math.random() - 0.5);
-          //sprite.position.y = 300 * Math.random() - 150;
-          //sprite.position.z = 1000 * (Math.random() - 0.5);
+          sprite.position.x = 1000 * (Math.random() - 0.5);
+          sprite.position.y = 300 * Math.random() - 150;
+          sprite.position.z = 1000 * (Math.random() - 0.5);
           // 必要に応じてスケールを調整
-          //sprite.scale.set(50, 50, 50);
+          sprite.scale.set(50, 50, 50);
 
-          //scene.add(sprite);
-        //}
+          scene.add(sprite);
+        }
 
         const erathtexture = textureLoader.load("img/earth.png");
 
-        //const sphereGeometry = new THREE.SphereGeometry(200, 32, 32); // 半径、垂直方向の分割数、水平方向の分割数
+        const sphereGeometry = new THREE.SphereGeometry(200, 32, 32); // 半径、垂直方向の分割数、水平方向の分割数
         const sphereMaterial = new THREE.MeshPhongMaterial();
         sphereMaterial.map = erathtexture;
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
