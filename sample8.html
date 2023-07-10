@@ -3,6 +3,10 @@
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="OrbitControls.js"></script>
+    <h1>パーティクル</h1>
+    <p>
+       new THREE.PointsMaterialを用いてパーティクルを作成した。中央には惑星のイラストを表示させた。
+    </p>
     <script>
       // ページの読み込みを待つ
       window.addEventListener('load', init);
@@ -30,8 +34,8 @@
         camera.position.set(0, 0, 1000);
 
         // カメラコントローラーを作成
-        const controls = new THREE.OrbitControls(camera);
-        controls.autoRotate = true;
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        // controls.autoRotate = true;
 
         // helper
         //const gridHelper = new THREE.GridHelper(1000, 20); // size, step
@@ -39,17 +43,16 @@
         //const axisHelper = new THREE.AxisHelper(1000); //軸の長さ　X：赤、Y：緑、z：青
         //scene.add(axisHelper);
 
-        // texture作成
+        // ビルボードのテクスチャ
         var textureLoader = new THREE.TextureLoader();
-        var suntexture = textureLoader.load("img/wakusei.png");
+        var billboardTexture = textureLoader.load("img/wakusei.png");
 
         // 平面（ポリゴン）を作成
-        var sungeometry = new THREE.PlaneGeometry(200,200);
-        var sunmat = new THREE.MeshBasicMaterial({transparent:true});
-        sunmat.map= suntexture;
-        var sunplane = new THREE.Mesh( sungeometry, sunmat );
-        sunplane.position.set(0, 250, 0);
-        scene.add( sunplane );
+        var billboardGeometry = new THREE.PlaneGeometry(200, 200);
+        var billboardMaterial = new THREE.MeshBasicMaterial({ transparent: true, map: billboardTexture });
+        var billboard = new THREE.Mesh(billboardGeometry, billboardMaterial);
+        billboard.position.set(0, 250, 0);
+        scene.add(billboard);
 
         // パーティクルシステムを作成
         const particleSystem = createParticleSystem();
