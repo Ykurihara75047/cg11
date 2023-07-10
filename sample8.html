@@ -38,8 +38,8 @@
         // controls.autoRotate = true;
 
         // ビルボードのテクスチャ
-        var textureLoader = new THREE.TextureLoader();
-        var billboardTexture = textureLoader.load("img/wakusei.png");
+        //var textureLoader = new THREE.TextureLoader();
+        //var billboardTexture = textureLoader.load("img/wakusei.png");
 
         // 平面（ポリゴン）を作成
         var billboardGeometry = new THREE.PlaneGeometry(200, 200);
@@ -77,7 +77,7 @@
 
         const erathtexture = textureLoader.load("img/earth.png");
 
-        const sphereGeometry = new THREE.SphereGeometry(200, 32, 32); // 半径、垂直方向の分割数、水平方向の分割数
+        //const sphereGeometry = new THREE.SphereGeometry(200, 32, 32); // 半径、垂直方向の分割数、水平方向の分割数
         const sphereMaterial = new THREE.MeshPhongMaterial();
         sphereMaterial.map = erathtexture;
         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
