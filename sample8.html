@@ -41,6 +41,7 @@
         const textureLoader = new THREE.TextureLoader();
 
         // 平面（ポリゴン）を作成
+        var billboardTexture = textureLoader.load("img/wakusei.png"); // テクスチャを読み込む
         var billboardGeometry = new THREE.PlaneGeometry(200, 200);
         var billboardMaterial = new THREE.MeshBasicMaterial({ transparent: true, map: billboardTexture });
         var billboard = new THREE.Mesh(billboardGeometry, billboardMaterial);
